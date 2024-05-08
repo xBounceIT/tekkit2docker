@@ -11,6 +11,22 @@ A docker-compose file structure to start your Tekkit 2 server
 ```
 nano docker-compose.yml
 ```
+```
+version: '3'
+services:
+  tekkit2-server:
+    image: xbounceita/tekkit2
+    container_name: tekkit-server
+    hostname: tekkit-server
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+    volumes:
+      - tekkit2-data:/server
+
+volumes:
+  tekkit2-data:
+```
 3. Start the container
 ```
 docker-compose up -d
